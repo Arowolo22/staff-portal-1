@@ -1,0 +1,6 @@
+{
+  "firestore": {
+    "database": "(default)",
+    "location": "us-central"
+  }
+}

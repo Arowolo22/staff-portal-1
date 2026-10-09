@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Admin User",
+      "username": "admin",
+      "email": "admin@olajide.com",
+      "password_hash": "4F4X2VAU3JQBymepclh5qQ==:4M9tNJaI6FZvOkqyZ7ChcRxKZGB4iRPxJeU9sJ3iCENf68HKCS/J4ef21J9wCNA8FRAdE1hHFh7uxuYR8SWR6A==",
+      "department": "Management",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T14:04:52.331Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 2,
+      "full_name": "Arowolo Emmanuel Olalekan",
+      "username": "emmyfree",
+      "email": "emmanuelolalekanarowolo@gmail.com",
+      "password_hash": "4TKN7DKOqN4Uqio4uQTZmg==:xIA7HZsjymsTD+eBEpZL4slkMFachI27hE3Uq2QU8GDY41fj1U43JC67rpHJ2dTOqWqAFekzy19C73z9JdSk1A==",
+      "department": "Not set",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T14:06:09.540Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 3,
+      "full_name": "Arowolo Emmanuel Olalekan",
+      "username": "emmy",
+      "email": "olalekanarowolo@gmail.com",
+      "password_hash": "7In77VhofXOS7qvU0alH/Q==:x1lW7J/b6NFaAq4yIp+G38IFW7AHeaulyEaYtJntal1UOsUpJ2pLkjQQNcJavjzgCZd2ikX/xhdq2kqbXb3mfw==",
+      "department": "Not set",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T14:18:21.107Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 4,
+      "full_name": "Arowolo Emmanuel Olalekan",
+      "username": "diesel",
+      "email": "arowolo@gmail.com",
+      "password_hash": "LaF920VdEc5EfwRX/Ns8hg==:gi5wsxIp2JG+ZeBsiUuV8AVI0FtF4pWcv5xJW+yHfVJSB/4EPdmlr8bap9CSuBDbr9vA3B8UqHPmtodkTXAxEw==",
+      "department": "Not set",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T15:50:15.925Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 5,
+      "firebase_uid": "zpk7PvKDRkNwgjpIwQLPASQymfq2",
+      "full_name": "Emmanuel olalekan",
+      "username": "lekside01",
+      "email": "arowolovisuals@gmail.com",
+      "password_hash": "IV1npqGN8F7IOiTmQ/1bkA==:BWxnEkS+MK7V5hDIAcB5eOvzhPqtCx+STlPW7K8rICvVwC1w+D919P9NYRJfQFdZTdq4rVkQRuLW/sIcmxoGjg==",
+      "department": "Not set",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T18:35:54.272Z",
+      "last_login": "2026-10-08T18:37:41.149Z",
+      "account_status": "active"
+    },
+    {
+      "id": 6,
+      "firebase_uid": "HYA4SZoGURbc04mOnrg4Y7P2mE72",
+      "full_name": "Arowolo Emmanuel",
+      "username": "onifades",
+      "email": "onifadeololadefavour1@gmail.com",
+      "password_hash": "Z5HsFl8g+B4KgDBDZ73n6w==:wejn4VuhnvACDM91mUl5/ybHwYNndXuS3O4lYXWp/0B9dSyouTb6/tg716wn+HSjSGDGGzB2N5P7i89fdLfKtg==",
+      "department": "Not set",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T18:50:36.375Z",
+      "last_login": "2026-10-08T18:50:36.375Z",
+      "account_status": "active"
+    }
+  ],
+  "projects": [
+    {
+      "id": 7,
+      "name": "Agro AI",
+      "description": "A B2B Product",
+      "created_by": 6,
+      "start_date": "2026-10-09",
+      "end_date": "2026-10-25",
+      "status": "Active",
+      "created_at": "2026-10-08T18:52:28.119Z",
+      "updated_at": "2026-10-08T18:52:28.119Z"
+    }
+  ],
+  "members": [
+    {
+      "id": 8,
+      "project_id": 7,
+      "user_id": 6,
+      "added_by": 6,
+      "added_at": "2026-10-08T18:52:28.119Z"
+    }
+  ],
+  "files": [],
+  "schedules": [],
+  "tickets": [],
+  "seq": 9
+}

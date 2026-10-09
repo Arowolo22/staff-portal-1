@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Log In – Olajide Tech Ltd</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase Authentication Web SDK and configuration -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="firebase/firebase.js"></script>
+    <script src="js/localapi.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body class="auth">
+    <div class="auth-card">
+    <img src="images/Logo-1.png" alt="logo" width="120px">
+    <div class="co">Olajide Tech ltd.</div>
+    <h1>STAFF PORTAL</h1>
+    <h2>Log In</h2>
+    <form id="loginForm" novalidate>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" autocomplete="username">
+        <label for="password">Password:</label>
+        <input id="password" type="password" autocomplete="current-password">
+        <div id="totpRow" hidden>
+            <label for="totp">Authenticator code:</label>
+            <input id="totp" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+        </div>
+        <div class="msg" id="formMessage"></div>
+        <button class="signin" id="loginBtn" type="submit">Sign In</button>
+    </form>
+        <p style="font-size:12px">No account? <a href="signup.html">Sign Up</a></p>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

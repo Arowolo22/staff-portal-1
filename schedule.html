@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Schedule – Olajide Tech Ltd</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/Logo-1.png" type="image/x-icon">
+    <!-- Firebase Authentication Web SDK and configuration -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="firebase/firebase.js"></script>
+    <script src="js/localapi.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="brand">
+        <button id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+        <img src="images/Logo-2.png" alt="logo" width="35px">
+        <span class="name">Olajide Tech Ltd</span>
+      </div>
+    <nav class="nav">
+      <a href="dashboard.html" class=""><span class="ico"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Z"/></svg></span>Dashboard</a>
+      <a href="schedule.html" class="active"><span class="ico"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M509-269q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/></svg></span>Schedule</a>
+      <a href="projects.html" class=""><span class="ico"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q13-36 43.5-58t68.5-22q38 0 68.5 22t43.5 58h168q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm80-160h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm221.5-198.5Q510-807 510-820t-8.5-21.5Q493-850 480-850t-21.5 8.5Q450-833 450-820t8.5 21.5Q467-790 480-790t21.5-8.5Z"/></svg></span>Projects</a>
+      <a href="settings.html" class=""><span class="ico"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm112-260q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Z"/></svg></span>Settings</a>
+      <a href="support.html" class=""><span class="ico"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M756-120 537-339l84-84 219 219-84 84Zm-552 0-84-84 276-276-68-68-28 28-51-51v82l-28 28-121-121 28-28h82l-50-50 142-142q20-20 43-29t47-9q24 0 47 9t43 29l-92 92 50 50-28 28 68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q15 0 28.5 3t27.5 9l-99 99 72 72 99-99q7 14 9.5 27.5T841-701q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L204-120Z"/></svg></span>IT Support</a>
+    </nav>    </aside>
+    <div class="main">
+      <header class="topbar">
+        <img id="navAvatar" class="avatar" alt="Profile">
+        <span id="userEmail" class="email"></span>
+      </header>
+      <main class="content">
+        <section class="card yellow wide" id="scheduleCard" style="min-height:0">
+          <h2>Schedule</h2>
+          <div class="sched-wrap">
+            <button id="addScheduleBtn" class="btn-plus" title="New schedule">+</button>
+            <div class="calendar-box" id="calendarBox">
+              <div class="cal-head">
+                <strong>Calendar</strong>
+                <button class="btn btn-sm" id="prevMonth">&lsaquo;</button>
+                <span class="grow" id="monthLabel"></span>
+                <button class="btn btn-sm" id="nextMonth">&rsaquo;</button>
+                <button class="btn btn-sm" id="todayBtn">Today</button>
+              </div>
+              <div id="calendar"></div>
+            </div>
+          </div>
+          <p style="font-size:11px;margin:10px 2px 0">Click a day to add a schedule · click a bar to view, edit or delete.</p>
+        </section>
+      </main>
+    </div>
+    <div id="toasts"></div>
+    <script src="js/schedule.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Admin User",
+      "username": "admin",
+      "email": "admin@olajide.com",
+      "password_hash": "REPLACE_WITH_HASHED_PASSWORD",
+      "department": "Management",
+      "profile_picture": null,
+      "theme": "system",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 2,
+      "full_name": "Maya Johnson",
+      "username": "maya.johnson",
+      "email": "maya.johnson@olajide.com",
+      "password_hash": "REPLACE_WITH_HASHED_PASSWORD",
+      "department": "Engineering",
+      "profile_picture": null,
+      "theme": "light",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "last_login": null,
+      "account_status": "active"
+    },
+    {
+      "id": 3,
+      "full_name": "Samuel Okafor",
+      "username": "samuel.okafor",
+      "email": "samuel.okafor@olajide.com",
+      "password_hash": "REPLACE_WITH_HASHED_PASSWORD",
+      "department": "Operations",
+      "profile_picture": null,
+      "theme": "dark",
+      "totp_secret": null,
+      "totp_enabled": false,
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "last_login": null,
+      "account_status": "active"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Staff Portal Redesign",
+      "description": "Modernize the employee portal with a clean dashboard, scheduling, project management, and support workflows.",
+      "created_by": 1,
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "status": "Active",
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "updated_at": "2026-10-08T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Operations Automation",
+      "description": "Automate repetitive internal operations such as approvals, reminders, and department task tracking.",
+      "created_by": 2,
+      "start_date": "2026-10-01",
+      "end_date": "2026-12-20",
+      "status": "Active",
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "updated_at": "2026-10-08T00:00:00.000Z"
+    }
+  ],
+  "members": [
+    { "id": 1, "project_id": 1, "user_id": 1, "added_by": 1, "added_at": "2026-10-08T00:00:00.000Z" },
+    { "id": 2, "project_id": 1, "user_id": 2, "added_by": 1, "added_at": "2026-10-08T00:00:00.000Z" },
+    { "id": 3, "project_id": 1, "user_id": 3, "added_by": 1, "added_at": "2026-10-08T00:00:00.000Z" },
+    { "id": 4, "project_id": 2, "user_id": 2, "added_by": 2, "added_at": "2026-10-08T00:00:00.000Z" },
+    { "id": 5, "project_id": 2, "user_id": 3, "added_by": 2, "added_at": "2026-10-08T00:00:00.000Z" }
+  ],
+  "files": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "uploaded_by": 1,
+      "original_filename": "portal_requirements.pdf",
+      "stored_filename": "memory:1",
+      "file_path": "memory/1",
+      "file_size": 240000,
+      "mime_type": "application/pdf",
+      "uploaded_at": "2026-10-08T00:00:00.000Z"
+    }
+  ],
+  "schedules": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "name": "Sprint Review",
+      "description": "Review current sprint status and unblock team dependencies.",
+      "start_date": "2026-10-08",
+      "end_date": "2026-10-08",
+      "project_id": 1,
+      "priority": "High",
+      "status": "In Progress",
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "updated_at": "2026-10-08T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "name": "Automation Planning",
+      "description": "Define the process map and stakeholders for automation rollout.",
+      "start_date": "2026-10-12",
+      "end_date": "2026-10-14",
+      "project_id": 2,
+      "priority": "Medium",
+      "status": "Pending",
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "updated_at": "2026-10-08T00:00:00.000Z"
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "subject": "Unable to access project files",
+      "description": "I can open the project workspace but some uploaded documents are not visible to stakeholders.",
+      "priority": "High",
+      "status": "Open",
+      "created_at": "2026-10-08T00:00:00.000Z",
+      "updated_at": "2026-10-08T00:00:00.000Z"
+    }
+  ],
+  "seq": 10
+}
