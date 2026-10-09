@@ -181,23 +181,31 @@ app.use(express.static(projectRoot));
 /* ---------- Firebase Authentication & Local Data Persistence ---------- */
 console.log('Firebase Authentication initialized via Google Identity Toolkit REST API (API key configured).');
 
-const cachePath = path.join(projectRoot, 'data', 'osp-state.json');
+const isVercel = !!process.env.VERCEL;
+const cachePath = isVercel
+  ? path.join('/tmp', 'osp-state.json')
+  : path.join(projectRoot, 'data', 'osp-state.json');
 
 async function loadDatabase() {
   if (state.memoryDb && Array.isArray(state.memoryDb.users) && state.memoryDb.users.length) {
     return state.memoryDb;
   }
 
-  // Read from local disk cache if exists
-  if (fs.existsSync(cachePath)) {
-    try {
-      const diskData = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
-      if (diskData && Array.isArray(diskData.users) && diskData.users.length) {
-        state.memoryDb = diskData;
-        return state.memoryDb;
+  const candidatePaths = isVercel
+    ? [path.join('/tmp', 'osp-state.json'), path.join(projectRoot, 'data', 'osp-state.json')]
+    : [cachePath];
+
+  for (const cPath of candidatePaths) {
+    if (fs.existsSync(cPath)) {
+      try {
+        const diskData = JSON.parse(fs.readFileSync(cPath, 'utf8'));
+        if (diskData && Array.isArray(diskData.users) && diskData.users.length) {
+          state.memoryDb = diskData;
+          return state.memoryDb;
+        }
+      } catch (e) {
+        console.warn('Unable to read state from:', cPath, e.message);
       }
-    } catch (e) {
-      console.warn('Unable to read state from disk cache:', e.message);
     }
   }
 
@@ -1040,18 +1048,35 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-/* ---------- Server Startup ---------- */
-(async () => {
-  try {
-    await ensureDefaultUser();
-  } catch (err) {
-    console.warn('Initial setup warning:', err.message);
+let defaultUserChecked = false;
+async function ensureDbReady() {
+  if (!defaultUserChecked) {
+    defaultUserChecked = true;
+    try {
+      await ensureDefaultUser();
+    } catch (err) {
+      console.warn('Initial setup warning:', err.message);
+    }
   }
-  app.listen(PORT, () => {
-    console.log(`Staff portal backend listening on http://localhost:${PORT}`);
-  });
-})().catch((err) => {
-  console.error('Fatal initialization error:', err.message);
+}
+
+app.use(async (req, res, next) => {
+  if (!defaultUserChecked) {
+    await ensureDbReady();
+  }
+  next();
 });
+
+/* ---------- Server Startup ---------- */
+if (!process.env.VERCEL) {
+  (async () => {
+    await ensureDbReady();
+    app.listen(PORT, () => {
+      console.log(`Staff portal backend listening on http://localhost:${PORT}`);
+    });
+  })().catch((err) => {
+    console.error('Fatal initialization error:', err.message);
+  });
+}
 
 module.exports = app;

@@ -63,17 +63,17 @@ async function api(url, opts = {}) {
     }
     return await response.json();
   } catch (e) {
-    // If backend was reached and returned a client error (validation, wrong password, conflict), throw it directly
-    if (e.status && e.status >= 400 && e.status < 500) {
+    // If backend was reached and returned a specific client error (validation, credentials, conflict), throw it directly
+    if (e.status && [400, 401, 403, 409].includes(e.status)) {
       if (e.status === 401 && !url.startsWith('/api/auth/login') && !url.startsWith('/api/auth/me')) location.href = 'login.html';
-      if (e.status === 401 && url.startsWith('/api/auth/me') && !/(login|signup)\.html/.test(location.pathname)) location.href = 'login.html';
+      if (e.status === 401 && url.startsWith('/api/auth/me') && !/(login|signup|index)/i.test(location.pathname) && location.pathname !== '/') location.href = 'login.html';
       throw e;
     }
     try {
       return await localApi(url, opts);
     } catch (localErr) {
       if (localErr.status === 401 && !url.startsWith('/api/auth/login') && !url.startsWith('/api/auth/me')) location.href = 'login.html';
-      if (localErr.status === 401 && url.startsWith('/api/auth/me') && !/(login|signup)\.html/.test(location.pathname)) location.href = 'login.html';
+      if (localErr.status === 401 && url.startsWith('/api/auth/me') && !/(login|signup|index)/i.test(location.pathname) && location.pathname !== '/') location.href = 'login.html';
       throw e?.status ? e : localErr;
     }
   }

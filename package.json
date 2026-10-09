@@ -5,6 +5,7 @@
   "description": "Firebase-connected backend for the Olajide Staff Portal.",
   "main": "server.js",
   "scripts": {
+    "build": "node -e \"console.log('Build completed successfully')\"",
     "start": "node server.js",
     "dev": "node server.js",
     "seed:firestore": "node firestore-seed.js",

@@ -11,7 +11,7 @@
   --red:#900000;
   --red-dark:#700000;
   --btn:#ffd966;
-  --shadow:0 15px 30px rgba(0,0,0,.35;)
+  --shadow:0 15px 30px rgba(0,0,0,.35);
 }
 
 :root[data-theme=dark]{
